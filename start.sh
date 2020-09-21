@@ -1,3 +1,2 @@
-alias hc='hoverctl'
-hc start
-hc mode capture
+hoverctl start
+hoverctl mode capture

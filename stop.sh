@@ -1,3 +1,2 @@
-alias hc='hoverctl'
-hc mode simulate
-hc export record.json
+hoverctl mode simulate
+hoverctl export record.json
