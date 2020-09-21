@@ -15,6 +15,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static io.specto.hoverfly.junit.core.HoverflyConfig.localConfigs;
+import static io.specto.hoverfly.junit.core.SimulationSource.dsl;
+import static io.specto.hoverfly.junit.dsl.HoverflyDsl.service;
+import static io.specto.hoverfly.junit.dsl.ResponseCreators.success;
+import static io.specto.hoverfly.junit.dsl.matchers.HoverflyMatchers.matches;
 
 public class HoverflyJavaTest {
     private static final HoverflyMode MODE = HoverflyMode.SIMULATE;
@@ -59,7 +63,7 @@ public class HoverflyJavaTest {
             hoverfly.start();
             hoverfly.simulate(
                     SimulationSource.file(SIMULATION_PATH)
-//                    dsl(
+//                    ,dsl(
 //                            service(matches("*"))
 //                            .post("webservicesserver/NumberConversion.wso")
 //                            .willReturn(success("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
