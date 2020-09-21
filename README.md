@@ -14,5 +14,5 @@ with names : *my_cert.pem*, *my_key.pem* accordingly.
 > $JAVA_HOME/jre/lib/security/cacerts -file my_cert.pem
 
 
-the generated certificates are used for bootstrapping the mock server in the tests,
-and to ble able to request with `OkHttp` we add it to the truststore.
+the generated certificates are used for bootstrapping the mock server within the tests,
+also to be able to request with `OkHttp` we need to add the certificate to the java truststore.
