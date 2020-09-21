@@ -15,7 +15,7 @@ import software.purpledragon.xml.scalatest.XmlMatchers.beXml
 import scala.util.{Failure, Success, Try}
 
 @RunWith(classOf[JUnitRunner])
-class LibrarySuite extends AnyFunSuite {
+class HoverFlyScalaTest extends AnyFunSuite {
   private val CERTS_FOLDER_PATH = "hoverfly/certs"
   private val CERTIFICATE_PATH = s"${CERTS_FOLDER_PATH}/my_cert.pem"
   private val KEY_PATH = s"${CERTS_FOLDER_PATH}/my_key.pem"
@@ -36,8 +36,6 @@ class LibrarySuite extends AnyFunSuite {
         resource.close()
         throw e
     }
-
-  def wrapXml(xmlBody:String): String = """<?xml version="1.0" encoding="utf-8"?>"""+xmlBody
 
   test("Simulate request") {
 
