@@ -1,0 +1,57 @@
+{
+  "data" : {
+    "pairs" : [ {
+      "request" : {
+        "path" : [ {
+          "matcher" : "exact",
+          "value" : "/webservicesserver/NumberConversion.wso"
+        } ],
+        "method" : [ {
+          "matcher" : "exact",
+          "value" : "POST"
+        } ],
+        "destination" : [ {
+          "matcher" : "glob",
+          "value" : "*"
+        } ],
+        "scheme" : [ {
+          "matcher" : "exact",
+          "value" : "https"
+        } ],
+        "body" : [ {
+          "matcher" : "exact",
+          "value" : "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <soap:Body>\n    <NumberToWords xmlns=\"http://www.dataaccess.com/webservicesserver/\">\n      <ubiNum>500</ubiNum>\n    </NumberToWords>\n  </soap:Body>\n</soap:Envelope>"
+        } ]
+      },
+      "response" : {
+        "status" : 200,
+        "body" : "H4sIAAAAAAAA/3VQuw7CMAzc+YooOwlsqGqLhMTKgJCYQ2LaSk1cxemDv6ehLWIok31n+852ehxszTrwVKHL+F7sOAOn0VSuyHgbntsDP+ablFA1ydl1UGMDbJxxlEQu42UITSIl6RKsIjGWIi/QFzImEuYhyfMNY5PQCc0rohHb5NLaB/gb3tEbugI16GixsF/9vu+FUUEprYFIaLSyhweB76pIjBH8ZPFHtq1DTtXAytYZD4alcr1nWmul+Nnrc4P8OWIGy2vyN3gcJmRRAQAA",
+        "encodedBody" : true,
+        "templated" : false,
+        "headers" : {
+          "Access-Control-Allow-Credentials" : [ "true" ],
+          "Access-Control-Allow-Headers" : [ "content-type" ],
+          "Access-Control-Allow-Methods" : [ "GET, POST" ],
+          "Access-Control-Allow-Origin" : [ "http://www.dataaccess.com" ],
+          "Cache-Control" : [ "private, max-age=0" ],
+          "Content-Encoding" : [ "gzip" ],
+          "Content-Type" : [ "text/xml; charset=utf-8" ],
+          "Date" : [ "Mon, 21 Sep 2020 10:15:23 GMT" ],
+          "Hoverfly" : [ "Was-Here" ],
+          "Server" : [ "Server" ],
+          "Strict-Transport-Security" : [ "max-age=31536000" ],
+          "Vary" : [ "Accept-Encoding" ],
+          "Web-Service" : [ "DataFlex 18.1" ]
+        }
+      }
+    } ],
+    "globalActions" : {
+      "delays" : [ ]
+    }
+  },
+  "meta" : {
+    "schemaVersion" : "v5",
+    "hoverflyVersion" : "v1.1.5",
+    "timeExported" : "2020-09-21T13:15:13+03:00"
+  }
+}
