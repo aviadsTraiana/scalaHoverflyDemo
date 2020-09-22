@@ -13,6 +13,7 @@ import org.scalatestplus.junit.JUnitRunner
 import software.purpledragon.xml.scalatest.XmlMatchers.beXml
 
 import scala.util.{Failure, Success, Try}
+import scala.xml.XML
 
 @RunWith(classOf[JUnitRunner])
 class HoverFlyScalaTest extends AnyFunSuite {
@@ -39,10 +40,10 @@ class HoverFlyScalaTest extends AnyFunSuite {
 
   test("Simulate request") {
 
-    using(new Hoverfly(configs, HoverflyMode.SIMULATE)) { hc: Hoverfly =>
-      hc.start()
+    val resultXmlElement = using(new Hoverfly(configs, HoverflyMode.SIMULATE)) { h: Hoverfly =>
+      h.start()
 
-      hc.simulate(SimulationSource.file(SIMULATION_PATH))
+      h.simulate(SimulationSource.file(SIMULATION_PATH))
 
       val client: OkHttpClient =
         new OkHttpClient().newBuilder
@@ -72,9 +73,10 @@ class HoverFlyScalaTest extends AnyFunSuite {
         .build()
 
       val response: Response = client.newCall(request).execute()
-      val resultXmlElement = scala.xml.XML.loadString(response.body().string())
-      val expectedXmlElement =
-        <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+      XML.loadString(response.body().string())
+    }
+    val expectedXmlElement =
+      <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
           <m:NumberToWordsResponse xmlns:m="http://www.dataaccess.com/webservicesserver/">
             <m:NumberToWordsResult>six hundred </m:NumberToWordsResult>
@@ -82,10 +84,7 @@ class HoverFlyScalaTest extends AnyFunSuite {
         </soap:Body>
       </soap:Envelope>
 
-      resultXmlElement should beXml(expectedXmlElement)
-
-
-    }
+    resultXmlElement should beXml(expectedXmlElement)
 
   }
 
